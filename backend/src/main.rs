@@ -16,7 +16,7 @@ use std::net::SocketAddr;
 async fn main() {
     let app = Router::new()
         .route("/", get(root_handler))
-        .route("/api/node", api::node::routes::node_router);
+        .nest("/api/node", api::node::routes::node_router());
     
     let addr = SocketAddr::from(([127, 0, 0, 1], 3000));
     tracing::debug!("listening on {}", addr);
