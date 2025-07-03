@@ -8,6 +8,6 @@ use super::handlers::authenticate_node;
 
 pub async fn node_router() -> Router {
     let app = Router::new()
-        .route("/node/auth", post(authenticate_node));
+        .route("/auth", post(authenticate_node));
     app
 }
